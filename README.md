@@ -255,6 +255,7 @@ for each ask MarketOrder
 </pre>
 
 3.3 Net Worth Algorithm
+=======================
 
 The Net Worth Algorithm is used at the end of the game to determine a winner. In a nutshell, it is totaling each
 Player's cash plus the "fair market value" of each Good in his inventory, where "fair market value" is a weighted
