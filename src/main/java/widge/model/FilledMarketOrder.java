@@ -6,6 +6,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
+/**
+ * The FilledMarketOrder represents the fulfillment of a pair of ask and bid MarketOrders. It consists of an (invisible)
+ * id, the Game to which it refers, the ask MarketOrder that was filled, the bid MarketOrder that was filled, the
+ * quantity of Goods that changed hands, the Turn at which the orders were filled, and the timestamp of the MarketOrders
+ * being filled. The set of all FilledMarketOrder objects for a given Good represent the market activity for that Good.
+ * This set of FilledMarketOrder objects are what get used in calculating fair market value of any remaining Goods at
+ * the end of the Game.
+ * @see MarketOrder
+ * @see Good
+ */
 @Entity
 @Table(name = "FilledMarketOrder")
 @XmlRootElement

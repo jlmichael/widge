@@ -8,6 +8,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
+/**
+ * The PlayerGame object maps Players to Games. It consists of an (invisible) id, a Player, and a Game.
+ */
 @Entity
 @Table(name = "PlayerGame")
 @XmlRootElement

@@ -6,6 +6,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
+/**
+ * A Turn object represents a sequential turn in a Game. For each Turn in a Game, a Player can execute a single Command.
+ * A Turn consists of an (invisible) id, the Game to which the Turn refers, the sequential turn number, a start time for
+ * when the Turn begins executing, and an end time for when the Turn execution ends.
+ * @see Game
+ * @see Player
+ * @see CommandTemplate
+ */
 @Entity
 @Table(name = "Turn")
 @XmlRootElement

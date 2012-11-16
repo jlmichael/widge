@@ -8,6 +8,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * The Game object represents a single instance of a Widge game on the server. Games define boundaries between players,
+ * actions, goods, etc., such that each is self-contained and player actions do not span Game boundaries. A Game
+ * consists of an (invisible) id, a name, and an ending condition. Games also have Turns.
+ * @see Turn
+ */
 @Entity
 @Table(name="Game")
 @XmlRootElement(name="game")

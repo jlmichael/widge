@@ -6,6 +6,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
+/**
+ * The PlayerGood object represents the Players' inventories by mapping Goods to Players. It consists of an (invisible)
+ * id, the Game to which it refers, the Player holding the Good, the Good in question, and the quantity of that Good
+ * that the user possesses.
+ * @see Player
+ * @see Good
+ * @see Game 
+ */
 @Entity
 @Table(name = "PlayerGood")
 @XmlRootElement

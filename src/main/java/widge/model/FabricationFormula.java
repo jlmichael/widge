@@ -9,6 +9,14 @@ import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A FabricationFormula object represents the recipe used to produce a Good from lower Goods in the hierarchy. It
+ * consists of an (invisible) id, the finished Good being produced, an input Good needed to fabricate the finished good,
+ * and the quantity of input needed. The set of all FabricationFormula objects with the same finished Good represents
+ * the total recipe needed for that finished Good.
+ * @see Good
+ * @see FabricationFormulaElement
+ */
 @Entity
 @Table(name = "FabricationFormula")
 @XmlRootElement

@@ -6,6 +6,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
+/**
+ * A Good object represents a raw material or manufactured good in the game world. It consists of an (invisible) id, a
+ * name, and a type (either 'RAW', 'INTERMEDIATE', or 'FINISHED'). Goods can be combined into other goods or sold on the
+ * open market.
+ */
 @Entity
 @Table(name="Good")
 @XmlRootElement

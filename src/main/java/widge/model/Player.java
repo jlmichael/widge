@@ -10,6 +10,13 @@ import java.util.Date;
 import java.util.List;
 
 
+/**
+ * The Player object represents a player account in the game world. The Player consists of an id (never displayed,
+ * invisible to all users, including the owner), a name, a password, a score, and an optional email address. Players can
+ * join Games, and within a Game Players can hold goods, issue commands, extract resources, buy and sell goods, and
+ * accumulate points.
+ * @see Game 
+ */
 @Entity
 @Table(name="Player", uniqueConstraints=@UniqueConstraint(columnNames={"Name"}))
 @XmlRootElement(name = "player")

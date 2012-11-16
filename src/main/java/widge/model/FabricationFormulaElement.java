@@ -5,6 +5,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+/**
+ * A single element in a FabricationFormula.  Each represents an "ingredient" Good in the recipe for creating a
+ * different Good.
+ */
 @Entity
 @Table(name = "FabricationFormulaElement")
 @XmlRootElement
@@ -35,6 +39,10 @@ public class FabricationFormulaElement {
         this.fabricationFormula = fabricationFormula;
     }
 
+    /**
+     * Return the URI for accessing this FabricationFormulaElement instance
+     * @return the URI for accessing this FabricationFormulaElement instance
+     */
     @XmlTransient
     public String asURI() {
         return "/fabricationformulaelement/" + id;

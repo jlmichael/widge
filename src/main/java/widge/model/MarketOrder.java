@@ -6,6 +6,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
+/**
+ * A MarketOrder object represents a single order to either buy or sell the given Good at a given price. It consists of
+ * an (invisible) id, the Game in which the MarketOrder exists, the Good being bought or sold, the Player executing the
+ * order, the type of order (ask or bid), the quantity of the Good being bought or sold, and the time at which the order
+ * was placed. When a MarketOrder is completely filled (quantity left to buy or sell is 0), it is removed from the game.
+ * @see Good
+ */
 @Entity
 @Table(name = "MarketOrder")
 @XmlRootElement

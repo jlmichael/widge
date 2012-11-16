@@ -6,6 +6,12 @@ import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Tokens authenticate Players to the game.  They get assigned when a Player logs in.  Clients then need to pass them
+ * in each request requiring authentication, such as submitting a Command.
+ * @see widge.util.Auth
+ *
+ */
 @Entity
 @Table(name="Token")
 public class Token {

@@ -2,10 +2,12 @@ package widge.model.dao.handler;
 
 import widge.model.dao.*;
 
-// A class for managing and bundling the various DAOs.  It was getting really cumbersome to pass around instances of
-// each DAO to the constructors of each Helper object.  This lets me pass around one master object that contains
-// references to each DAO I might need.  In practice, this gets built once by the RESTeasy framework and added to its
-// list of singletons.
+/**
+ * A class for managing and bundling the various DAOs.  It was getting really cumbersome to pass around instances of
+ * each DAO to the constructors of each Helper object.  This lets me pass around one master object that contains
+ * references to each DAO I might need.  In practice, this gets built once by the RESTeasy framework and added to its
+ * list of singletons.
+ */
 public class DAOHandler {
 
     private CommandTemplateDAO commandTemplateDAO;
@@ -24,6 +26,21 @@ public class DAOHandler {
     public DAOHandler() {
     }
 
+    /**
+     * Create a new DAOHandler to store the passed in DAO objects
+     * @param commandTemplateDAO
+     * @param fabricationFormulaDAO
+     * @param filledMarketOrderDAO
+     * @param gameDAO
+     * @param goodDAO
+     * @param marketOrderDAO
+     * @param playerCommandDAO
+     * @param playerDAO
+     * @param playerGameDAO
+     * @param playerGoodDAO
+     * @param tokenDAO
+     * @param turnDAO
+     */
     public DAOHandler(CommandTemplateDAO commandTemplateDAO,
                       FabricationFormulaDAO fabricationFormulaDAO,
                       FilledMarketOrderDAO filledMarketOrderDAO,

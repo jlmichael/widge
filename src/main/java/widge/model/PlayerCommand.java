@@ -8,6 +8,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.util.Date;
 
+/**
+ * The PlayerCommand object maps Players to Commands they have issued. For a given Game, Player, and Turn, only one
+ * PlayerCommand object may exist, as Players can only execute one Command per Turn. It consists of an (invisible) id,
+ * the Game to which it refers, the issuing Player, the Command being issued, four parameters (not all of which may need
+ * to be used for every Command), the Turn it should be executed on, a timestamp for when it is executed, and a log of
+ * the results of the execution.
+ * @see CommandTemplate
+ * @see Turn
+ * @see Player
+ * @see Game
+ */
 @Entity
 @Table(name = "PlayerCommand")
 @XmlRootElement
