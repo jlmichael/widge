@@ -320,7 +320,7 @@ The Widge API is the public, RESTful API used to interact with the game world. L
 Game Objects listed above to form the "nouns", and the various HTTP operations form the "verbs" that act on those nouns.
 So, for example, to create a new Player, the user might POST a Player object to the URL http://foo.bar/widge/Player.
 Similarly, to get a list of all Players, the user might send a GET request to the URL http://foo.bar/widge/Player. And
-to get just a single Player by name, the user might send a GET request to the URL http://foo.bar/widge/Player/<name>.
+to get just a single Player by name, the user might send a GET request to the URL http://foo.bar/widge/Player/\<name\>.
 
 Widge uses JSON as its representation of Objects in the game. Clients will need to be able to understand the Object
 models and create, pass and decode JSON representations of them. Later work may allow for different formats, such as
