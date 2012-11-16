@@ -18,9 +18,9 @@ game ends when a certain number of turns are completed or certain global conditi
 
 I'm building Widge for a few reasons:
 
-    to familiarize myself with building public, RESTful APIs and using enabling technologies like RESTlets.
-    to build a service-based game with no UI, enabling myself and others to experiment with different front-end
-    technologies
+* to familiarize myself with building public, RESTful APIs and using enabling technologies like RESTlets.
+* to build a service-based game with no UI, enabling myself and others to experiment with different front-end
+technologies
 
 1.2 Gameplay Description
 ========================
@@ -203,20 +203,22 @@ objects and refreshing their list of FilledMarketOrder objects.
 The Game Script is responsible for executing each Player's selected Command for the given Turn for which it is running.
 At a pseudocode level, it is doing the following:
 
-> for each Game with Turns ready to execute
->   get Turn to execute and mark as started
->   for each PlayerCommand for this Game and Turn
->     lookup Command object and get function name
->     execute function name with parameters provided in PlayerCommand
->     update PlayerCommand with timestamp, log of output
->   execute Market Script (see below)
->   mark Turn as finished
->   if Game's ending conditions are met
->     for each PlayerGame object for this Game
->       calculate Player's net worth using Net Worth Algorithm (see below)
->     rank players by Net Worth
->     allocate points to Players based on rank
->     notify Players of ranking
+<pre>
+for each Game with Turns ready to execute
+  get Turn to execute and mark as started
+  for each PlayerCommand for this Game and Turn
+    lookup Command object and get function name
+    execute function name with parameters provided in PlayerCommand
+    update PlayerCommand with timestamp, log of output
+  execute Market Script (see below)
+  mark Turn as finished
+  if Game's ending conditions are met
+    for each PlayerGame object for this Game
+      calculate Player's net worth using Net Worth Algorithm (see below)
+    rank players by Net Worth
+    allocate points to Players based on rank
+    notify Players of ranking
+</pre>
 
 3.2 Market Script
 =================
@@ -226,56 +228,61 @@ the world. In a nutshell, it is trying to find a seller of goods who is asking f
 that good is offering. It fills the order at the asking price (not the bid price, importantly), and executes orders in
 the order in which they are placed (advantaging faster players). At a pseudocode level, it is doing the following:
 
-> get all MarketOrder objects and split into ask and bid lists
-> sort both lists by order time
-> for each ask MarketOrder
->   while ask MarketOrder's quantity > 0
->     for each bid MarketOrder
->       if bid price < ask price, continue
->       else we can fill these orders
->       quantity exchanged = max(bid quantity, ask quantity)
->       add quantity exchanged * ask price to seller's account
->       add/update PlayerGood object for buyer, adding quantity exchanged of this Good
->       create a new FilledMarketOrder object for this exchange
->       if quantity exchanged >= bid quantity
->         remove bid MarketOffer from bid list and from game
->         subtract quantity exchanged from ask MarketOffer's quantity
->         for each FilledMarketOffers for this bid offer
->           sum up all ask prices * quantity bought (get total cost)
->           sum up all quantity bought (get total units bought)
->         subtract total cost from total units bought * bid price
->         add this amount to buyer's account (credit them with unspent monies)
->       else
->         remove ask MarketOffer from ask list and from game
->         subtract quantity exchanged from bid MarketOffer's quantity
->         break
+<pre>
+get all MarketOrder objects and split into ask and bid lists
+sort both lists by order time
+for each ask MarketOrder
+  while ask MarketOrder's quantity > 0
+    for each bid MarketOrder
+      if bid price < ask price, continue
+      else we can fill these orders
+      quantity exchanged = max(bid quantity, ask quantity)
+      add quantity exchanged * ask price to seller's account
+      add/update PlayerGood object for buyer, adding quantity exchanged of this Good
+      create a new FilledMarketOrder object for this exchange
+      if quantity exchanged >= bid quantity
+        remove bid MarketOffer from bid list and from game
+        subtract quantity exchanged from ask MarketOffer's quantity
+        for each FilledMarketOffers for this bid offer
+          sum up all ask prices * quantity bought (get total cost)
+          sum up all quantity bought (get total units bought)
+        subtract total cost from total units bought * bid price
+        add this amount to buyer's account (credit them with unspent monies)
+      else
+        remove ask MarketOffer from ask list and from game
+        subtract quantity exchanged from bid MarketOffer's quantity
+        break
+</pre>
+
 3.3 Net Worth Algorithm
 
 The Net Worth Algorithm is used at the end of the game to determine a winner. In a nutshell, it is totaling each
 Player's cash plus the "fair market value" of each Good in his inventory, where "fair market value" is a weighted
 average of closing prices for the previous few turns. In pseudocode, it looks something like this:
 
-> for each Good
->   for i = 0 .. 9
->     for each FilledMarketOrder object for this Good where Turn was i turns ago
->       total sales += quantity exchanged * ask price
->       total units sold += quantity
->     weighted price = total sales / total units sold * (1 - i * .1)
->     weighted numerator += weighted price
->     weighted denominator += (1 - i * .1)
->   fair market value (FMV) for this Good = weighted numerator / weighted denominator
->   hash the Good to its FMV
->
-> for each PlayerGame object for this Game
->   get Player
->   net worth = Player's cash account
->   for each PlayerGood for this Game and Player
->     if Good type is FINISHED
->       call Simulated Demand Function for this Good (see below)
->       net worth += simulated demand price * quantity
->     else
->       get FMV for this Good from hash
->       net worth += FMV * quantity
+<pre>
+for each Good
+  for i = 0 .. 9
+    for each FilledMarketOrder object for this Good where Turn was i turns ago
+      total sales += quantity exchanged * ask price
+      total units sold += quantity
+    weighted price = total sales / total units sold * (1 - i * .1)
+    weighted numerator += weighted price
+    weighted denominator += (1 - i * .1)
+  fair market value (FMV) for this Good = weighted numerator / weighted denominator
+  hash the Good to its FMV
+
+for each PlayerGame object for this Game
+  get Player
+  net worth = Player's cash account
+  for each PlayerGood for this Game and Player
+    if Good type is FINISHED
+      call Simulated Demand Function for this Good (see below)
+      net worth += simulated demand price * quantity
+    else
+      get FMV for this Good from hash
+      net worth += FMV * quantity
+</pre>
 
 3.4 Simulated Demand Function
 =============================
