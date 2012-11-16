@@ -1,10 +1,11 @@
-package widge.model.dao;
+package widge.model.dao.impl;
 
 import junit.framework.TestCase;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 import widge.model.FabricationFormula;
+import widge.model.dao.FabricationFormulaDAO;
 import widge.model.dao.impl.FabricationFormulaDAOImpl;
 
 import java.util.ArrayList;

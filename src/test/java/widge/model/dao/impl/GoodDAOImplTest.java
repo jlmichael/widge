@@ -1,4 +1,4 @@
-package widge.model.dao;
+package widge.model.dao.impl;
 
 import junit.framework.TestCase;
 import org.hibernate.Query;
@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 import org.junit.Test;
 import widge.model.Good;
+import widge.model.dao.GoodDAO;
 import widge.model.dao.impl.GoodDAOImpl;
 
 import java.util.ArrayList;

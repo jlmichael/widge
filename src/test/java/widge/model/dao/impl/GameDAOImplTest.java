@@ -1,4 +1,4 @@
-package widge.model.dao;
+package widge.model.dao.impl;
 
 import junit.framework.TestCase;
 import static org.easymock.classextension.EasyMock.*;
@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
 import org.junit.Test;
 import widge.model.Game;
+import widge.model.dao.GameDAO;
 import widge.model.dao.impl.GameDAOImpl;
 
 import java.util.ArrayList;

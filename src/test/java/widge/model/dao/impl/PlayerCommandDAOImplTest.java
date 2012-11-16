@@ -1,4 +1,4 @@
-package widge.model.dao;
+package widge.model.dao.impl;
 
 import junit.framework.TestCase;
 import org.hibernate.Query;
@@ -9,6 +9,7 @@ import widge.model.Game;
 import widge.model.Player;
 import widge.model.PlayerCommand;
 import widge.model.Turn;
+import widge.model.dao.PlayerCommandDAO;
 import widge.model.dao.impl.PlayerCommandDAOImpl;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package widge.model.dao;
+package widge.model.dao.impl;
 
 import junit.framework.TestCase;
 import org.hibernate.Query;
@@ -8,6 +8,7 @@ import org.junit.Test;
 import widge.model.FilledMarketOrder;
 import widge.model.Game;
 import widge.model.Player;
+import widge.model.dao.FilledMarketOrderDAO;
 import widge.model.dao.impl.FilledMarketOrderDAOImpl;
 
 import java.util.ArrayList;

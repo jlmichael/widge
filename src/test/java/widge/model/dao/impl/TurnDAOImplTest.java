@@ -1,4 +1,4 @@
-package widge.model.dao;
+package widge.model.dao.impl;
 
 import junit.framework.TestCase;
 import org.hibernate.Query;
@@ -7,6 +7,7 @@ import org.hibernate.classic.Session;
 import org.junit.Test;
 import widge.model.Game;
 import widge.model.Turn;
+import widge.model.dao.TurnDAO;
 import widge.model.dao.impl.TurnDAOImpl;
 
 import java.util.ArrayList;
